@@ -1,76 +1,58 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Kaitlyn Brewer&#39;s Data Blog</title>
+    <title>Tags on Kaitlyn Brewer&#39;s Blog</title>
     <link>/tags/</link>
-    <description>Recent content in Tags on Kaitlyn Brewer&#39;s Data Blog</description>
+    <description>Recent content in Tags on Kaitlyn Brewer&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>plot</title>
-      <link>/tags/plot/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <title>Blogdown</title>
+      <link>/tags/blogdown/</link>
+      <pubDate>Thu, 24 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/plot/</guid>
+      <guid>/tags/blogdown/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>R Markdown</title>
-      <link>/tags/r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <title>Hugo</title>
+      <link>/tags/hugo/</link>
+      <pubDate>Thu, 24 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r-markdown/</guid>
+      <guid>/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>regression</title>
-      <link>/tags/regression/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <title>R</title>
+      <link>/tags/r/</link>
+      <pubDate>Thu, 24 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/regression/</guid>
+      <guid>/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>ssss</title>
-      <link>/tags/ssss/</link>
-      <pubDate>Wed, 23 Mar 2011 00:00:00 +0000</pubDate>
+      <title>Biology</title>
+      <link>/tags/biology/</link>
+      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/ssss/</guid>
+      <guid>/tags/biology/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>vvvvv</title>
-      <link>/tags/vvvvv/</link>
-      <pubDate>Wed, 23 Mar 2011 00:00:00 +0000</pubDate>
+      <title>Shiny App</title>
+      <link>/tags/shiny-app/</link>
+      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/vvvvv/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>xxx</title>
-      <link>/tags/xxx/</link>
-      <pubDate>Wed, 23 Mar 2011 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/xxx/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>yyy</title>
-      <link>/tags/yyy/</link>
-      <pubDate>Wed, 23 Mar 2011 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/yyy/</guid>
+      <guid>/tags/shiny-app/</guid>
       <description></description>
     </item>
     

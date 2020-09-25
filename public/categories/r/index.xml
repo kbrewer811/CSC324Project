@@ -1,37 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R on Kaitlyn Brewer&#39;s Data Blog</title>
+    <title>R on Kaitlyn Brewer&#39;s Blog</title>
     <link>/categories/r/</link>
-    <description>Recent content in R on Kaitlyn Brewer&#39;s Data Blog</description>
+    <description>Recent content in R on Kaitlyn Brewer&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Hello R Markdown</title>
-      <link>/2015/07/23/hello-r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <title>Project Report</title>
+      <link>/2020/09/24/project-report/</link>
+      <pubDate>Thu, 24 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2015/07/23/hello-r-markdown/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+      <guid>/2020/09/24/project-report/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Enjoy R Markdown!</title>
-      <link>/2015/01/01/sample-r-markdown/</link>
-      <pubDate>Thu, 01 Jan 2015 21:13:14 -0500</pubDate>
+      <title>Shiny App for Modeling Heterozygosity Remaining</title>
+      <link>/2020/09/22/heterozygousityapp/</link>
+      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2015/01/01/sample-r-markdown/</guid>
-      <description>&lt;p&gt;A sample article with that shows off &lt;strong&gt;R Markdown&lt;/strong&gt;, including displayed code like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cat(&#39;Hello, World&#39;)
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Don&amp;rsquo;t miss it!&lt;/p&gt;
-</description>
+      <guid>/2020/09/22/heterozygousityapp/</guid>
+      <description>One way that biologists measure genetic diversity loss over time is heterozygosity loss. Heterozygosity is having different alleles at any given loci. For instance, at a given loci, Aa is demonstarting heterozygosity, while AA or aa would be demonstrating homozygosity. Having the two different alleles is a good indicator of genetic diversity, so we can look at what percentage of a particular population is demonstrating heterozygosity to determine that population’s genetic viability.</description>
     </item>
     
   </channel>
