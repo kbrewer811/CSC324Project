@@ -21,3 +21,22 @@ title = "Kaitlyn Brewer's Blog"
 [[menu.main]]
   name = "About"
   URL = "/about/"
+
+[[menu.main]]
+  name = "Tags"
+  URL = "/tags/"
+  
+[related]
+  includeNewer = false
+  threshold = 80
+  toLower = false
+
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+
+  [[related.indices]]
+    name = "date"
+    weight = 10
+    
+    

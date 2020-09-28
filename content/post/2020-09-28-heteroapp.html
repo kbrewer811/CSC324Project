@@ -1,0 +1,21 @@
+---
+title: Shiny App for Modeling Heterozygosity Remaining
+author: Kaitlyn Brewer
+date: '2020-09-22'
+slug: heteroApp
+math: true
+categories: []
+tags:
+  - Shiny App
+  - Biology
+  - R
+---
+
+
+
+<p>One way that biologists measure genetic diversity loss over time is heterozygosity loss. Heterozygosity is having different alleles at any given loci. For instance, at a given loci, Aa is demonstarting heterozygosity, while AA or aa would be demonstrating homozygosity. Having the two different alleles is a good indicator of genetic diversity, so we can look at what percentage of a particular population is demonstrating heterozygosity to determine that population’s genetic viability.</p>
+<p>Let’s take a look at the equation that helps us predict this.</p>
+<p><span class="math display">\[ H_t = \left(1 - \frac{1}{2 * N_e}\right)^t \]</span>
+In this equation, <span class="math inline">\(H_t\)</span> is proportion of original heterozygosity remaining at time (<span class="math inline">\(t\)</span>), which is essentially the number of breeding seasons. The variable <span class="math inline">\(N_e\)</span> is the effective population size, or the number of individuals that are actually contributing to the next generation genetically.</p>
+<p>Ideally, this proportion will stay relatively high, but this is dependent on the amount of time and contributing individuals. Given a small population, the heterozygosity will drop fairly quickly. Given a large population, the heterozygosity will still fall, but much slower, which could allow for some form of intervention if needed.</p>
+<p>I created a shiny app that runs this calculation for a user-provided effective population size (<span class="math inline">\(N_e\)</span>) and time (<span class="math inline">\(t\)</span>). Visit this <a href="https://kbrewer811.shinyapps.io/BIO435/?_ga=2.241502273.2108371051.1600992142-583861794.1588180640">link</a> to view the shiny app in full action with an animating graph.</p>

@@ -1,0 +1,10 @@
+<div class="related">
+{{ $related := .Site.RegularPages.RelatedIndices . "tags" "date" }}
+{{ with $related }}
+<h3>See Also</h3>
+<ul>
+	{{ range . }}
+	<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+	{{ end }}
+</ul>
+{{ end }}
