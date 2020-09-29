@@ -7,8 +7,112 @@ categories:
   - R
   - Hugo
 tags:
+  - Blogdown
   - Hugo
   - R
-  - Blogdown
 ---
 
+# Introduction
+This blog is meant for anyone that wants to see my projects and other work. This could be future employers, classmates, and professors (should a project be relevant to other courses). My intention is to use this (or something similar) as a sort of portfolio, but it could have other applications as well. 
+
+# Theme Source
+This theme was originally a product of Zhe Zhnag. Their original code can be viewed on their git repo [here](https://github.com/zhe/hugo-theme-slim). However, for this specific website, the modified version from Homer White was used, git repo linked [here](https://github.com/homerhanumat/hugo-theme-slim).
+
+# My Modifications
+
+## List of Tags
+Dr. White was able to help me get a specific page that lists out all of the tags on the blog. This was done by creating a top-level `layouts` directory, as well as a `taxonomy` directory within that, which houses the code that produces this unordered list. I then made a small modification to the `config.toml` that adds a way for users to get directly to that list from the menu bar at the top left of the screen. 
+This is the code for the `taxonomy/list.hmtl`.
+```r
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+<body>
+  <div class="container">
+    {{ partial "header.html" . }}
+    <div class="content">
+      <h1 id="title"> {{ .Title }}</h1>
+     <ul>
+      {{ range .Pages }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+      {{ end }}
+     </ul>
+    </div>
+    {{ partial "footer.html" . }}
+  </div>
+  <script src="{{ .Site.BaseURL }}js/slim.js"></script>
+  {{ with .Site.Params.AnalyticsID }}{{ partial "analytics.html" . }}{{ end }}
+
+</body>
+
+</html>
+```
+
+This is the addition to the `config.toml` that adds a more direct way to get to the list of tags:
+```r
+[[menu.main]]
+  name = "Tags"
+  URL = "/tags/"
+```
+
+## Tags at the Top of Article Pages
+I also wanted the tags to appear on both the list of articles (this is done by default in the theme), as well as at the top of the article. For this, I added the same `{{ range .Params.tags }}...` from the `_default/list.hmtl` into my top-level `post/single.html`. The tags were just not visible enough for my preference, but there are much more visible from the top of the articles. 
+
+This was added to the `post/single.html` at the top-level `layouts` directory in order to get the tags at the top of the articles: 
+```r
+{{ if .Params.tags }}
+			<span class="tags">
+		  	{{ range .Params.tags }}
+			          #<a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a>&nbsp;
+		  	{{ end }}
+		    </span>
+		  {{ end }}
+```
+
+## Related Content
+Lastly, I wanted related articles to be shown at the bottom of whatever article the viewer was on. For example, if an article had three tags, and another article had 2 tags in common, I wanted an "Also See" message at the end of the article with the second article linked. For this, I had to create a new partial in my top-level `layouts` directory, in addition to adding some configuration in my `config.toml`. The code for this was obtained from the [Hugo website itself] (https://gohugo.io/content-management/related/). The only thing that it does not mention is adding `{{ partial "related.html" . }}` under the `"post-content" <div>` in the `post/single.html` on the top-level directory. 
+
+This code was added to `layouts/partials` in order to create the `related` partial:
+```r
+<div class="related">
+{{ $related := .Site.RegularPages.RelatedIndices . "tags" "date" }}
+{{ with $related }}
+<h3>See Also</h3>
+<ul>
+	{{ range . }}
+	<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+	{{ end }}
+</ul>
+{{ end }}
+```
+
+This was added to the `config.toml` to set up the application of the `related` partial in the posts: 
+```r
+[related]
+  includeNewer = true
+  threshold = 80
+  toLower = false
+
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+
+    [[related.indices]]
+    name = "date"
+    weight = 0  
+```
+
+When put into the `layouts/post/single.html` at the top-level directory, this actually incorporates the `related` partial into each post. 
+```r
+{{ partial "related.html" . }}
+```
+
+# Potential Additions
+This blog is a work in progress. In the future, I may add:
+
+* a specific page for a list of projects
+* the ability for viewers to comment on those projects
+
+# Git Repo
+The git repo for this website can be found [here](https://github.com/kbrewer811/CSC324Project).

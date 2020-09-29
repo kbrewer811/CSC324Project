@@ -27,7 +27,7 @@ title = "Kaitlyn Brewer's Blog"
   URL = "/tags/"
   
 [related]
-  includeNewer = false
+  includeNewer = true
   threshold = 80
   toLower = false
 
@@ -35,8 +35,7 @@ title = "Kaitlyn Brewer's Blog"
     name = "tags"
     weight = 100
 
-  [[related.indices]]
+    [[related.indices]]
     name = "date"
-    weight = 10
-    
+    weight = 0  
     

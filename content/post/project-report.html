@@ -7,11 +7,107 @@ categories:
   - R
   - Hugo
 tags:
+  - Blogdown
   - Hugo
   - R
-  - Blogdown
 ---
 
 
 
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This blog is meant for anyone that wants to see my projects and other work. This could be future employers, classmates, and professors (should a project be relevant to other courses). My intention is to use this (or something similar) as a sort of portfolio, but it could have other applications as well.</p>
+</div>
+<div id="theme-source" class="section level1">
+<h1>Theme Source</h1>
+<p>This theme was originally a product of Zhe Zhnag. Their original code can be viewed on their git repo <a href="https://github.com/zhe/hugo-theme-slim">here</a>. However, for this specific website, the modified version from Homer White was used, git repo linked <a href="https://github.com/homerhanumat/hugo-theme-slim">here</a>.</p>
+</div>
+<div id="my-modifications" class="section level1">
+<h1>My Modifications</h1>
+<div id="list-of-tags" class="section level2">
+<h2>List of Tags</h2>
+<p>Dr. White was able to help me get a specific page that lists out all of the tags on the blog. This was done by creating a top-level <code>layouts</code> directory, as well as a <code>taxonomy</code> directory within that, which houses the code that produces this unordered list. I then made a small modification to the <code>config.toml</code> that adds a way for users to get directly to that list from the menu bar at the top left of the screen.
+This is the code for the <code>taxonomy/list.hmtl</code>.</p>
+<pre class="r"><code>&lt;head&gt;
+  {{ partial &quot;head.html&quot; . }}
+&lt;/head&gt;
 
+&lt;body&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    {{ partial &quot;header.html&quot; . }}
+    &lt;div class=&quot;content&quot;&gt;
+      &lt;h1 id=&quot;title&quot;&gt; {{ .Title }}&lt;/h1&gt;
+     &lt;ul&gt;
+      {{ range .Pages }}
+        &lt;li&gt;&lt;a href=&quot;{{ .Permalink }}&quot;&gt;{{ .Title }}&lt;/a&gt;&lt;/li&gt;
+      {{ end }}
+     &lt;/ul&gt;
+    &lt;/div&gt;
+    {{ partial &quot;footer.html&quot; . }}
+  &lt;/div&gt;
+  &lt;script src=&quot;{{ .Site.BaseURL }}js/slim.js&quot;&gt;&lt;/script&gt;
+  {{ with .Site.Params.AnalyticsID }}{{ partial &quot;analytics.html&quot; . }}{{ end }}
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>This is the addition to the <code>config.toml</code> that adds a more direct way to get to the list of tags:</p>
+<pre class="r"><code>[[menu.main]]
+  name = &quot;Tags&quot;
+  URL = &quot;/tags/&quot;</code></pre>
+</div>
+<div id="tags-at-the-top-of-article-pages" class="section level2">
+<h2>Tags at the Top of Article Pages</h2>
+<p>I also wanted the tags to appear on both the list of articles (this is done by default in the theme), as well as at the top of the article. For this, I added the same <code>{{ range .Params.tags }}...</code> from the <code>_default/list.hmtl</code> into my top-level <code>post/single.html</code>. The tags were just not visible enough for my preference, but there are much more visible from the top of the articles.</p>
+<p>This was added to the <code>post/single.html</code> at the top-level <code>layouts</code> directory in order to get the tags at the top of the articles:</p>
+<pre class="r"><code>{{ if .Params.tags }}
+            &lt;span class=&quot;tags&quot;&gt;
+            {{ range .Params.tags }}
+                      #&lt;a href=&quot;{{ $.Site.BaseURL }}tags/{{ . | urlize }}&quot;&gt;{{ . }}&lt;/a&gt;&amp;nbsp;
+            {{ end }}
+            &lt;/span&gt;
+          {{ end }}</code></pre>
+</div>
+<div id="related-content" class="section level2">
+<h2>Related Content</h2>
+<p>Lastly, I wanted related articles to be shown at the bottom of whatever article the viewer was on. For example, if an article had three tags, and another article had 2 tags in common, I wanted an “Also See” message at the end of the article with the second article linked. For this, I had to create a new partial in my top-level <code>layouts</code> directory, in addition to adding some configuration in my <code>config.toml</code>. The code for this was obtained from the [Hugo website itself] (<a href="https://gohugo.io/content-management/related/" class="uri">https://gohugo.io/content-management/related/</a>). The only thing that it does not mention is adding <code>{{ partial "related.html" . }}</code> under the <code>"post-content" &lt;div&gt;</code> in the <code>post/single.html</code> on the top-level directory.</p>
+<p>This code was added to <code>layouts/partials</code> in order to create the <code>related</code> partial:</p>
+<pre class="r"><code>&lt;div class=&quot;related&quot;&gt;
+{{ $related := .Site.RegularPages.RelatedIndices . &quot;tags&quot; &quot;date&quot; }}
+{{ with $related }}
+&lt;h3&gt;See Also&lt;/h3&gt;
+&lt;ul&gt;
+    {{ range . }}
+    &lt;li&gt;&lt;a href=&quot;{{ .RelPermalink }}&quot;&gt;{{ .Title }}&lt;/a&gt;&lt;/li&gt;
+    {{ end }}
+&lt;/ul&gt;
+{{ end }}</code></pre>
+<p>This was added to the <code>config.toml</code> to set up the application of the <code>related</code> partial in the posts:</p>
+<pre class="r"><code>[related]
+  includeNewer = true
+  threshold = 80
+  toLower = false
+
+  [[related.indices]]
+    name = &quot;tags&quot;
+    weight = 100
+
+    [[related.indices]]
+    name = &quot;date&quot;
+    weight = 0  </code></pre>
+<p>When put into the <code>layouts/post/single.html</code> at the top-level directory, this actually incorporates the <code>related</code> partial into each post.</p>
+<pre class="r"><code>{{ partial &quot;related.html&quot; . }}</code></pre>
+</div>
+</div>
+<div id="potential-additions" class="section level1">
+<h1>Potential Additions</h1>
+<p>This blog is a work in progress. In the future, I may add:</p>
+<ul>
+<li>a specific page for a list of projects</li>
+<li>the ability for viewers to comment on those projects</li>
+</ul>
+</div>
+<div id="git-repo" class="section level1">
+<h1>Git Repo</h1>
+<p>The git repo for this website can be found <a href="https://github.com/kbrewer811/CSC324Project">here</a>.</p>
+</div>

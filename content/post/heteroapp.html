@@ -4,11 +4,14 @@ author: Kaitlyn Brewer
 date: '2020-09-22'
 slug: heteroApp
 math: true
-categories: []
-tags:
-  - Shiny App
+categories: 
   - Biology
   - R
+  - Shiny App
+tags:
+  - Biology
+  - R
+  - Shiny App
 ---
 
 
@@ -18,4 +21,5 @@ tags:
 <p><span class="math display">\[ H_t = \left(1 - \frac{1}{2 * N_e}\right)^t \]</span>
 In this equation, <span class="math inline">\(H_t\)</span> is proportion of original heterozygosity remaining at time (<span class="math inline">\(t\)</span>), which is essentially the number of breeding seasons. The variable <span class="math inline">\(N_e\)</span> is the effective population size, or the number of individuals that are actually contributing to the next generation genetically.</p>
 <p>Ideally, this proportion will stay relatively high, but this is dependent on the amount of time and contributing individuals. Given a small population, the heterozygosity will drop fairly quickly. Given a large population, the heterozygosity will still fall, but much slower, which could allow for some form of intervention if needed.</p>
-<p>I created a shiny app that runs this calculation for a user-provided effective population size (<span class="math inline">\(N_e\)</span>) and time (<span class="math inline">\(t\)</span>). Visit this <a href="https://kbrewer811.shinyapps.io/BIO435/?_ga=2.241502273.2108371051.1600992142-583861794.1588180640">link</a> to view the shiny app in full action with an animating graph.</p>
+<p>I created a shiny app that runs this calculation for a user-provided effective population size (<span class="math inline">\(N_e\)</span>) and time (<span class="math inline">\(t\)</span>). The app gives the user the proportion of original heterozygosity remaining, and has the capability to show an animated graph, which can be helpful when visualizing the genetic diversity loss.</p>
+<p>Visit this <a href="https://kbrewer811.shinyapps.io/BIO435/?_ga=2.241502273.2108371051.1600992142-583861794.1588180640">link</a> to view the shiny app in full action with the animating graph.</p>
